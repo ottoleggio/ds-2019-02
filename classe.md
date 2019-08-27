@@ -13,3 +13,7 @@
 (Padrões de arquitetura de software, Design de software)  
 (Testes de software, Design de software)  
 (Pratica em engenharia de software, *)  
+
+
+Opção de trabalho individual:
+1. Avaliação de expressões matemáticas definidas em tempo de execução. Ou seja, uma expressão como “x + 2 * (y - 3)” é fornecida, assim como os valores correspondentes às variáveis e o resultado deve ser fornecido (rapidamente). Há muitas bibliotecas que podem ser empregadas para tal finalidade. A identificação delas e a seleção de uma faz parte deste trabalho.
