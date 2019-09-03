@@ -1,8 +1,5 @@
 Avaliação de expressões matemáticas só conhecidas em tempo de execução. Descrição: uma expressão como “x + 2 * (y - 3)” é conhecida ou recebida pelo software como uma sequência de caracteres (String), apenas em tempo de execução, assim como os valores correspondentes às variáveis, neste caso, “x” e “y”, e o software (componente) deve produzir o resultado correspondente. Há muitas bibliotecas que podem ser empregadas para tal finalidade. A identificação delas e a seleção de uma, a ser empregada pelo componente a ser projetado, faz parte deste trabalho
 
-Descrição dos requisitos:
-- Receber uma String com expressões matemáticas
-- Receber os valores das variaveis para o cálculo
-- O programa deve interpretar a expressão recebida como String e traduzir para linguagem matemática
-- Os valores das variáveis devem ser atribuídos aos valores
-- O programa deve retornar o resultado da expressão matemática
+Descrição dos requisitos do módulo:
+- R1 Uma expressão matemática, por exemplo, "x + y" deve ser recebida como uma sequência de caracteres e ter sua avaliação realizada conforme os valores das variáveis empregadas pela expressão.
+- R2 Se algum valor não é fornecido, então não há como avaliar a expressão. Por exemplo, se para "x + y" não é conhecido o valor de qualquer uma das variáveis, seja "x" ou "y", então não é possível avaliar a expressão.
