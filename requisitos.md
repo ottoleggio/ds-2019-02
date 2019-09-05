@@ -3,3 +3,30 @@ Avaliação de expressões matemáticas só conhecidas em tempo de execução. D
 Descrição dos requisitos do módulo:
 - R1 Uma expressão matemática, por exemplo, "x + y" deve ser recebida como uma sequência de caracteres e ter sua avaliação realizada conforme os valores das variáveis empregadas pela expressão.
 - R2 Se algum valor não é fornecido, então não há como avaliar a expressão. Por exemplo, se para "x + y" não é conhecido o valor de qualquer uma das variáveis, seja "x" ou "y", então não é possível avaliar a expressão.
+
+Casos de teste:  
+x + 2 * (y - 3)  
+onde x = -2; y = 3  
+resultado = 0  
+  
+a + b * c / d  
+onde a = 1; b = 2; c = 3; d = 4  
+resultado = 2.5
+
+(a + 2) / j
+onde a = 2; j = 10;
+resultado = 0.4
+
+10 + a * a
+onde a = 2
+resultado = 14
+
+x * x - x
+onde x = 10
+resultado = 90
+
+0 * 10
+resultado = 0
+
+0 + 0
+resultado = 0
