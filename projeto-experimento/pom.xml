@@ -572,7 +572,7 @@
                         <configuration>
                             <targetClasses>
                                 <param>
-                                    com.github.kyriosdata.exemplo.domain.Calendario
+                                    com.github.kyriosdata.exemplo.expressoes.AvaliaExpressao
                                 </param>
                             </targetClasses>
                             <targetTests>
