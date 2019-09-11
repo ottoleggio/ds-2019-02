@@ -82,8 +82,7 @@ public class Fatura {
     }
 
     public String toString() {
-        return "idFatura=" + idFatura + ", unidadeConsumidora="
-                + unidadeConsumidora + ", consumo=" + consumo + ", encargos="
-                + encargos;
+        // Deve fazer parte os atributos relevantes. Quais seriam?
+        return String.format("%s %s %s", idFatura, unidadeConsumidora, consumo);
     }
 }
