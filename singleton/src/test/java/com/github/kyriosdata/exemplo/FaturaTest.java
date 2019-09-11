@@ -37,5 +37,27 @@ class FaturaTest {
         assertThrows(UnsupportedOperationException.class, () ->
                 nome.getEncargos().remove(0));
 }
+
+    @Test
+    void verificaCalculo() {
+        Fatura.Builder builder = new Fatura.Builder("2019832832")
+                .addConsumo(20.33)
+                .addEncargo("multa revelia")
+                .addUnidadeConsumidora("727381X")
+                .baixaRenda(false)
+                ;
+        assertEquals(builder.build().calculaValor(),30.494999999999997);
+    }
+    
+    @Test
+    void verificaCalculoBaixaRenda() {
+        Fatura.Builder builder = new Fatura.Builder("2019832832")
+                .addConsumo(20.33)
+                .addEncargo("multa revelia")
+                .addUnidadeConsumidora("727381X")
+                .baixaRenda(true)
+                ;
+        assertEquals(builder.build().calculaValor(),24.395999999999997);
+    }
 }
 
