@@ -3,7 +3,8 @@ Avaliação de expressões matemáticas só conhecidas em tempo de execução. D
 ### Descrição dos requisitos do módulo:
 - R1 Uma expressão matemática, por exemplo, "x + y" deve ser recebida como uma sequência de caracteres e ter sua avaliação realizada conforme os valores das variáveis empregadas pela expressão.
 - R2 Se algum valor não é fornecido, então não há como avaliar a expressão. Por exemplo, se para "x + y" não é conhecido o valor de qualquer uma das variáveis, seja "x" ou "y", então não é possível avaliar a expressão.
-- R3 Caso a variável seja atribuída mais de uma vez com valores diferentes, apenas o primeiro valor deve ser considerado.
+- R3 Caso uma mesma variável seja atribuída mais de uma vez com valores diferentes, apenas o primeiro valor deve ser considerado.
+
 
 ### Descrição dos requisitos não-funcionais
 - R1 A biblioteca [mXparser](http://mathparser.org/) pode ser utilizada para calcular as expressões matemáticas.
