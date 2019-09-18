@@ -58,5 +58,5 @@ Para incluir a dependência no projeto Maven, adicionar ao pom:
 e um dicionário String e double nominado 'valores', sendo a String da variável e o seu valor correspondente. Utilizar um 
 dicionário para receber os valores das variáveis evita que diferentes valores sejam atribuidos para uma mesma variável.
   - a função Expression() da biblioteca EvalEx calcula a expressão (por exemplo Expression(a+b)). Para atribuir variáveis
-  extende-se a função with() (por exemplo Expression(a+b).with(("a", "1").("b", "2"), obtendo 1+2=3).
+  extende-se a função with() (por exemplo Expression(a+b).with("a", "1").("b", "2"), obtendo 1+2=3).
 - Uma excessão 'Valor de variável inválido' deve ser gerado caso um valor não numérico ou nulo seja passado no parâmetro 'valores'
