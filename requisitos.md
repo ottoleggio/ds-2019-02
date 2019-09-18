@@ -45,5 +45,6 @@ resultado = 10
 - A biblioteca [mXparser](http://mathparser.org/) pode ser utilizada para calcular as expressões matemáticas.
 - 'AvaliadorExpressao' é a interface responsável pelo método que avalia a expressão.
 - 'Avalia' é um método da interface 'AvaliadorExpressao' que recebe uma String 'exp' contendo a expressão a ser calculada
-e um dicionário String e double nominado 'valores', sendo a String da variável e o seu valor correspondente.
+e um dicionário String e double nominado 'valores', sendo a String da variável e o seu valor correspondente. Utilizar um 
+dicionário para receber os valores das variáveis evita que diferentes valores sejam atribuidos para uma mesma variável.
 - Uma excessão 'Valor de variável inválido' deve ser gerado caso um valor não numérico ou nulo seja passado no parâmetro 'valores'
