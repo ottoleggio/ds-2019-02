@@ -3,11 +3,7 @@ Avaliação de expressões matemáticas só conhecidas em tempo de execução. D
 ### Descrição dos requisitos do módulo:
 - R1 Uma expressão matemática, por exemplo, "x + y" deve ser recebida como uma sequência de caracteres e ter sua avaliação realizada conforme os valores das variáveis empregadas pela expressão.
 - R2 Se algum valor não é fornecido, então não há como avaliar a expressão. Por exemplo, se para "x + y" não é conhecido o valor de qualquer uma das variáveis, seja "x" ou "y", então não é possível avaliar a expressão.
-- R3 Caso uma mesma variável seja atribuída mais de uma vez com valores diferentes, apenas o primeiro valor deve ser considerado.
-
-
-### Descrição dos requisitos não-funcionais
-- R1 A biblioteca [mXparser](http://mathparser.org/) pode ser utilizada para calcular as expressões matemáticas.
+- R3 O software deve tratar casos em que o valor das variáveis não for informado.
 
 ### Casos de teste:  
 x + 2 * (y - 3)  
@@ -43,3 +39,11 @@ resultado = -5
 x + x 
 onde x = 5; x = 10  
 resultado = 10 
+
+
+### Design
+- A biblioteca [mXparser](http://mathparser.org/) pode ser utilizada para calcular as expressões matemáticas.
+- 'AvaliadorExpressao' é a interface responsável pelo método que avalia a expressão.
+- 'Avalia' é um método da interface 'AvaliadorExpressao' que recebe uma String 'exp' contendo a expressão a ser calculada
+e um dicionário String e double nominado 'valores', sendo a String da variável e o seu valor correspondente.
+- Uma excessão 'Valor de variável inválido' deve ser gerado caso um valor não numérico ou nulo seja passado no parâmetro 'valores'
