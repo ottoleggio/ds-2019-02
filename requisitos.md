@@ -59,4 +59,5 @@ e um dicionário String e BigDecimal nominado 'valores', sendo a String da vari�
   - a função Expression() da biblioteca EvalEx calcula a expressão (por exemplo Expression(a+b)). Para atribuir variáveis
   extende-se a função with() (por exemplo Expression(a+b).with("a", "1").("b", "2"), obtendo 1+2=3).
   - a função eval() calcula a expressão e retorna o resultado.
+  - a função itera adicionando os valores das variáveis, usando getUsedVariables().size() para determinar o tamanho do laço.
 - Uma excessão 'Valor de variável inválido' deve ser gerado caso um valor não numérico ou nulo seja passado no parâmetro 'valores'
