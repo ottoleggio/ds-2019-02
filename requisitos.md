@@ -43,16 +43,7 @@ resultado = 10
 
 ### Design
 - A biblioteca [EvalEx](https://github.com/uklimaschewski/EvalEx) pode ser utilizada para calcular as expressões matemáticas.
-Para incluir a dependência no projeto Maven, adicionar ao pom:
-````xml
-</dependencies>
-    <dependency>
-        <groupId>com.udojava</groupId>
-        <artifactId>EvalEx</artifactId>
-        <version>2.1</version>
-    </dependency>
-</dependencies>
-````
+
 - 'AvaliadorExpressao' é a interface responsável pelo método que avalia a expressão.
 - 'Avalia' é um método da interface 'AvaliadorExpressao' que recebe uma String 'exp' contendo a expressão a ser calculada
 e um dicionário String e BigDecimal nominado 'valores', sendo a String da variável e o seu valor correspondente respectivamente. Utilizar um dicionário para receber os valores das variáveis evita que diferentes valores sejam atribuidos para uma mesma variável.
