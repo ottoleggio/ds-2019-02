@@ -6,7 +6,11 @@ public class NumeroTelefonico {
     String numero;
     
     public NumeroTelefonico(String codPais, String codEstado, String numero) {
+        // TODO linha abaixo desnecessária
         super();
+        
+        // TODO você poderia ter optado por (verifique os argumentos)
+        // this.codPais = Objects.requireNonNull(codPais);
         this.codPais = codPais;
         this.codEstado = codEstado;
         this.numero = numero;
@@ -34,6 +38,11 @@ public class NumeroTelefonico {
             return false;
             }
         NumeroTelefonico teste2 = (NumeroTelefonico) teste;
+        
+        // FIXME lógica "complexa" não?
+        // Por que não...
+        // return codEstado.equals(teste2.codEstado) && codPais.equals(teste2.codPais) && ...;
+        
         if (codEstado == null) {
             if (teste2.codEstado != null) {
                 return false;
