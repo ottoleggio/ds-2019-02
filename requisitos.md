@@ -40,6 +40,15 @@ x + x
 onde x = 5; x = 10  
 resultado = 10 
 
+x + x
+onde x = 5; x = 10
+(teste para variável duplicada)
+resultado = 20
+
+x + y + x
+onde x = 5; y = 6; x = 10
+(teste para variável duplicada)
+resultado = 26
 
 ### Design
 - A biblioteca [EvalEx](https://github.com/uklimaschewski/EvalEx) pode ser utilizada para calcular as expressões matemáticas.
