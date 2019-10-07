@@ -18,13 +18,8 @@ public class NumeroTelefonico {
     
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result
-                + ((codEstado == null) ? 0 : codEstado.hashCode());
-        result = prime * result + ((codPais == null) ? 0 : codPais.hashCode());
-        result = prime * result + ((numero == null) ? 0 : numero.hashCode());
-        return result;
+        // TODO nao é preciso "reinventar" a roda.
+        return Objects.hashCode(codPais + codEstado + numero); 
     }
 
     public boolean equals(Object teste) {
