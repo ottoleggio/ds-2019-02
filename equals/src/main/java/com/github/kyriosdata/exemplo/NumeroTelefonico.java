@@ -34,6 +34,11 @@ public class NumeroTelefonico {
         if (teste == null) {
             return false;
             }
+        
+        // FIXME Eu sugeri instanceof em vez de getClass() conforme abaixo.
+        // Você sabe a diferença? Conforme está o Princípio de Substituição de Liskov é quebrado. 
+        // Você deveria evitar essa implementação. Sugerida: 
+        // if (teste instanceof NumeroTelefonico)
         if (getClass() != teste.getClass()) {
             return false;
             }
