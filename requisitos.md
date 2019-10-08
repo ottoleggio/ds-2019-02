@@ -12,31 +12,31 @@ resultado = 0
   
 a + b * c / d  
 onde a = 1; b = 2; c = 3; d = 4  
-resultado = 2.5
+resultado = 2.5  
 
-(a + 2) / j
-onde a = 2; j = 10;
-resultado = 0.4
+(a + 2) / j  
+onde a = 2; j = 10;  
+resultado = 0.4  
 
-10 + a * a
-onde a = 2
-resultado = 14
+10 + a * a  
+onde a = 2  
+resultado = 14  
 
-x * x - x
-onde x = 10
-resultado = 90
+x * x - x  
+onde x = 10  
+resultado = 90  
 
-0 * 10
-resultado = 0
+0 * 10  
+resultado = 0  
 
-0 + 0
-resultado = 0
+0 + 0  
+resultado = 0  
 
 x + 2 * (x - 3)  
 onde x = -2; x = 3  
 resultado = -5 
 
-x + x 
+x + x  
 onde x = 5; x = 10  
 resultado = 10 
 
