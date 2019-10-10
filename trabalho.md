@@ -1,9 +1,8 @@
-Sugestão para o trabalho 2:
+# Corrigindo código não identificado
 
-Identificação de códigos de barras não identificados.
-O código de barras das faturas de energia são enviados para a concessionária para realizar a baixa no sistema através de arquivos
-txt, cada um com uma linha de código de barras do pagamento efetuado.
-Porém algumas vezes o código não é identificado pelo sistema, por estar fora do padrão. Isso acontece por erros de digitação, ou
+O código de barras de uma fatura de energia é enviado para a concessionária para que a baixa correspondente possa ser efetuada.
+O envio ocorre por meio de um arquivo TXT, no qual estão presentes códigos de barras de várias faturas, um por linha. 
+Nem sempre, contudo, o código de barras é identificado pelo sistema, por estar fora do padrão. Isso acontece por erros de digitação, ou
 falha no leitor de código de barras, ou leitores de câmeras de celular ruins.
 O padrão do código no entanto foi pensado de uma forma a ser possível interpretar um código não identificado e se identificar a 
 fatura. Entretanto esse processo é realizado manualmente.
