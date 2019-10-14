@@ -37,4 +37,9 @@ A fatura de ID:83640000000195200090013000001541550000100000 não foi encontrada.
 A fatura de ID:83630000000994400090013000001539950000600000 não foi encontrada.  
 
 
-
+### Descrição dos requisitos do módulo:
+- R1 Uma sequência 45 números deve ser recebida como sequência de caracteres.
+- R2 O software deve ser capaz de identificar quantos blocos tem uma sequência válida para o sistema
+de acordo com o manual de código de barras da organização.
+- R3 O software deve sugerir um conjunto de blocos que considerou como válido.
+- R4 Para uma sugestão de código ser emitida, pelo menos dois blocos devem ter uma sequência de números considerada válida.
