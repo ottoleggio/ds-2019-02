@@ -10,10 +10,10 @@ O padrão do código, no entanto, foi projetado de forma a admitir recuperação
 ## Suposições a serem esclarecidas
 
 - Há como automatizar o processo manual hoje empregado. 
-
-
-
-Exemplos de códigos:
+  
+  
+  
+Exemplos de códigos:  
 PRC_00014: A fatura de ID:83600000000268700090000000106228970800110000 não foi encontrada.
 PRC_00014: A fatura de ID:83620000001399500090000000103780000810100000 não foi encontrada.
 PRC_00014: A fatura de ID:83650000000493400090013000001542120000600000 não foi encontrada.
