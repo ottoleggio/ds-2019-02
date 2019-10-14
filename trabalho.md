@@ -39,7 +39,7 @@ A fatura de ID:83630000000994400090013000001539950000600000 não foi encontrada.
 
 ### Descrição dos requisitos do módulo:
 - R1 Uma sequência 44 números deve ser recebida como sequência de caracteres.
-- R2 O software deve separar o código em 5 blocos: valor da fatura; id da fatura; mês e ano da fatura; id da conta.
+- R2 O software deve separar o código em 4 blocos: valor da fatura; id da fatura; mês e ano da fatura; id da conta.
 - R3 O software deve ser capaz de identificar quantos blocos tem uma sequência válida para o sistema
 de acordo com o manual de código de barras da organização. 
 - R4 São considerados id de fatura inválidos quando toda a sequência for de números 0.  
