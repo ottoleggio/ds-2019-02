@@ -42,7 +42,7 @@ A fatura de ID:83630000000994400090013000001539950000600000 não foi encontrada.
 - R2 O software deve separar o código em 4 blocos: valor da fatura; id da fatura; mês e ano da fatura; id da conta.
 - R3 O software deve ser capaz de identificar quantos blocos tem uma sequência válida para o sistema
 de acordo com o manual de código de barras da organização. 
-- R4 São considerados id de fatura inválidos quando toda a sequência for de números 0.  
+- R4 São considerados id de fatura inválidos quando toda a sequência for de números 0, ou os dois primeiros dígitos não forem 0.  
 - R5 São considerados id de conta inválidos quando toda a sequência for de números 0, ou os dois primeiros dígitos não forem 0.
 - R6 O software deve identificar se o 'mês e ano da fatura' presente no código corresponde a uma data válida. 
 - R7 O software deve sugerir um conjunto de, no mínimo, dois blocos que considerou como válido. Os blocos considerados válidos
