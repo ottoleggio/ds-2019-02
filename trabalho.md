@@ -51,7 +51,7 @@ de acordo com o manual de código de barras da organização.
  9944000900 1 -> bloco 2  
  3005001219 9 -> bloco 3  
  5000060011 0 -> bloco 4  
- Valor da fatura = 99,54 (bloco 2, 0 a 4)  
+ Valor da fatura = 0000009954 (bloco 1 , 4 a 9) + (bloco 2, 0 a 4)  
  Id da fatura = 00300500 (bloco 2, 8 a 9) + (bloco 3, 0 a 6)  
- mês e ano da fatura = 12/19 (bloco 3, 7 a 9)  
+ mês e ano da fatura = 1219 (bloco 3, 7 a 9)  
  id da conta = 5000060011 (bloco 4, 0 a 9)  
