@@ -47,6 +47,7 @@ de acordo com o manual de código de barras da organização.
 - R6 O software deve identificar se o 'mês e ano da fatura' presente no código corresponde a uma data válida. 
 - R7 O software deve sugerir um conjunto de, no mínimo, dois blocos que considerou como válido. Os blocos considerados válidos
 serão retornados para que outro sistema consulte no banco de dados da organização se aquela sequência corresponde a uma fatura.
+- R8 Caso nenhum ou apenas um bloco seja válido, o sistema deve retornar uma mensagem dizendo que a fatura não é identificável.
 
 Manual do código de barras:  
  8363000000 0 -> bloco 1   
