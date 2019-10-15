@@ -50,11 +50,11 @@ serão retornados para que outro sistema consulte no banco de dados da organiza�
 - R8 Caso nenhum ou apenas um bloco seja válido, o sistema deve retornar uma mensagem dizendo que a fatura não é identificável.
 
 Manual do código de barras:  
- 8363000000 0 -> bloco 1   
- 9944000900 1 -> bloco 2  
- 3005001219 9 -> bloco 3  
- 0030060011 0 -> bloco 4  
- Valor da fatura = 0000009954 (bloco 1 , 4 a 9) + (bloco 2, 0 a 4)  
- Id da fatura = 00300500 (bloco 2, 8 a 9) + (bloco 3, 0 a 6)  
- mês e ano da fatura = 1219 (bloco 3, 7 a 9)  
- id da conta = 0030060011 (bloco 4, 0 a 9)  
+ 83630000000 -> bloco 1   
+ 99440009001 -> bloco 2  
+ 30050012190 -> bloco 3  
+ 00030600110 -> bloco 4  
+ Valor da fatura = 0000009954 (bloco 1 , 4 a 10) + (bloco 2, 0 a 3)  
+ Id da fatura = 00300500 (bloco 2, 8 a 10) + (bloco 3, 0 a 5)  
+ mês e ano da fatura = 1219 (bloco 3, 6 a 9)  
+ id da conta = 030600110 (bloco 4, 1 a 10)  
