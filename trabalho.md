@@ -58,3 +58,11 @@ Manual do código de barras:
  Id da fatura = 001300500 (bloco 2, 8 a 10) + (bloco 3, 0 a 5)  
  mês e ano da fatura = 1219 (bloco 3, 6 a 9)  
  id da conta = 030600110 (bloco 4, 1 a 10)  
+  
+  
+  # Design
+  ## Versão 1
+ - Receber uma String contendo o código de barras
+ - Separar os blocos importantes do código
+ - Identificar quais blocos se enquadram como válidos
+ - Retornar os blocos válidos, identificando-os
