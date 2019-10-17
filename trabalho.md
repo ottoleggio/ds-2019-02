@@ -14,7 +14,7 @@ O padrão do código, no entanto, foi projetado de forma a admitir recuperação
   
   
 Exemplos de códigos:  
-A fatura de ID:83600000000268700090000000106228970800110000 não foi encontrada.  
+A fatura de ID:836 000000002687 0009 0000000 1062 28 970800110000 não foi encontrada.  
 A fatura de ID:83620000001399500090000000103780000810100000 não foi encontrada.  
 A fatura de ID:83650000000493400090013000001542120000600000 não foi encontrada.  
 A fatura de ID:83660000000474000090013000001542110000100000 não foi encontrada.  
@@ -65,4 +65,15 @@ Manual do código de barras:
  - Receber uma String contendo o código de barras
  - Separar os blocos importantes do código
  - Identificar quais blocos se enquadram como válidos
- - Retornar os blocos válidos, identificando-os
+ - Retornar os blocos válidos, identificando-os  
+ 
+  ## Versão 2
+  - A classe denominada 'CodigoDeBarras' contém o atributo 'codigo' que recebe uma String contendo o código de barras através de seu construtor.
+  - A classe 'CodigoDeBarras' contém um método 'separaBlocos' que separa os blocos importantes do código, sendo caractere 3 ao 14 o 'valor da fatura', do 18 ao 27 o 'id da fatura', do 28 ao 32 o 'mês e ano da fatura' e do 34 ao 43 o 'id da conta'. O método retorna um dicionário com os quatro blocos separados.
+  - O método 'avaliaBlocos' recebe o dicionário da 'separaBlocos' e avalia o 'idFatura', o 'mês e ano da fatura' e o 'idConta'.
+    - O 'mês e ano da fatura' chama um outro método específico, 'avaliaData' para validar se aquela data é uma data possível.
+    - O 'idFatura' é verificado se contém dois zeros iniciais.
+    - O 'idConta' é verificado se contém dois zeros iniciais.
+  - O método 'avaliaBlocos' retorna um flag para cada 
+  
+  
