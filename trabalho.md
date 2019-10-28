@@ -96,28 +96,28 @@ Manual do código de barras:
         
   ## Casos de teste
   
-  Teste 1, conta errada:  
+  ### Teste 1, conta errada:  
   8361 000000002687 0009 009387492 1019 00 008011**1**322 : Código não identificado  
   8361 000000002687 0009 009387492 1019 00 008011**0**322 : Código correto  
   - O software deve identificar a fatura através do número da fatura, validando com o valor e o mês/ano.  
   - 100% de certeza  
    **********
      
-  Teste 2, fatura errada:  
+  ## Teste 2, fatura errada:  
   8361 000000002687 0009 0093874**1**2 1019 00 0080110322 : Código não identificado  
   8361 000000002687 0009 0093874**9**2 1019 00 0080110322 : Código correto  
   - O software deve identificar a fatura através do número da conta, validando com o valor e o mês/ano.  
   - 100% de certeza 
      **********
      
-  Teste 3, valor errado:  
+  ## Teste 3, valor errado:  
   8361 0000000026**00** 0009 009387492 1019 00 0080110322 : Código não identificado  
   8361 0000000026**87** 0009 009387492 1019 00 0080110322 : Código correto  
   - O software deve identificar a fatura através do número da fatura, validando com a conta e o mês/ano.  
   - 100% de certeza 
      **********
      
-  Teste 4, mês/ano errado:  
+  ## Teste 4, mês/ano errado:  
   8361 000000002687 0009 009387492 1**1**19 00 0080110322 : Código não identificado  
   8361 000000002687 0009 009387492 1**0**19 00 0080110322 : Código correto  
   - O software deve identificar a fatura através do número da fatura, validando com a conta e o valor. 
