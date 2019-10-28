@@ -86,7 +86,7 @@ Manual do código de barras:
       - Ao receber mais de um bloco válido, o método buscaBanco realiza uma consulta no banco de dados da organização os seguintes blocos:
         1. id da fatura
         2. id da conta
-        - Cada consulta pode retornar uma fatura possível, o método retorna os os blocos dessa fatura.
+        - Cada consulta pode retornar uma fatura possível, o método retorna os blocos dessa fatura.
       - O método identificaPossivelFatura chama o buscaBanco e compara a fatura retornada na consulta com a fatura avaliada. A fatura retornada deve coincidir exatamente em pelo menos dois dos quatro blocos para ser considerado como identificada com 100% de certeza.
-      - Caso nenhum outro bloco coincida, o método avalia a quantidade de números iguais na mesma posição entre os códigos e retorna os percentuais de igualdade de cada retorno da consulta.
+      - Caso nenhum outro bloco coincida, o método chama o método avaliaNumeros que avalia a quantidade de números iguais na mesma posição entre os códigos e retorna os percentuais de igualdade de cada retorno da consulta.
       
