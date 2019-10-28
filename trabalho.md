@@ -142,3 +142,9 @@ Manual do código de barras:
   8361 0000000026**87** 0009 009**387**492 **2319** 00 0021420322 : Código correto  
   - O software deve consultar a fatura através do número da conta, como não há nenhum outro bloco igual, o retorno deve ser o  de maior percentual de números coincidentes. 
   - 86% de números coincidentes 
+         **********
+     
+  ### Teste 8, todos os blocos errados:  
+  8361 0000000026**00** 0009 009**123**492 **1056** 00 00214**3**0322 : Código não identificado  
+  8361 0000000026**87** 0009 009**387**492 **2319** 00 00214**2**0322 : Código correto  
+  - Não há como consultar uma fatura correspondente.
