@@ -81,4 +81,10 @@ Manual do código de barras:
       - A classe possui os métodos getValorFatura, getIdFatura, getMesAnoFatura e getIdConta. Cada método lê o código de barras enviado já na construção da classe e retorna o trecho que identifica cada bloco respectivamente.
   - A classe ValidaBlocos tem o método validadorDeBlocos que é responsável por avaliar se cada bloco é válido ou não conforme especificado nos requisitos. Apenas os blocos considerados como válidos são retornados como um dicionário.
       - Cada regra de validação de cada bloco é definida em métodos menores que serão utilizados pelo validadorDeBlocos. Desta forma as regras podem ser aperfeiçoadas sem alterar o comportamento do método avaliador.
-  
+  - A classe faturaPossivel é responsável por tentar definir qual fatura pode ser mais adequada aos blocos validados que ela receber.
+      - Caso o dicionário contenha apenas um ou nenhum bloco válido, o construtor já retorna nulo pois não é possível identificar uma fatura.
+      - Ao receber mais de um bloco válido, o método buscaBanco realiza uma consulta no banco de dados da organização os seguintes blocos:
+        1. id da fatura
+        2. id da conta
+        - Cada consulta pode retornar uma fatura possível, o método retorna os os blocos dessa fatura.
+      - O método identificaPossivelFatura chama o buscaBanco e compara a fatura retornada na consulta com a fatura avaliada. A fatura retornada deve coincidir exatamente em pelo menos dois dos quatro blocos para ser considerado como identificada.
