@@ -122,3 +122,18 @@ Manual do código de barras:
   8361 000000002687 0009 009387492 1**0**19 00 0080110322 : Código correto  
   - O software deve identificar a fatura através do número da fatura, validando com a conta e o valor. 
   - 100% de certeza 
+     **********
+     
+  ## Teste 5, valor, mês/ano e conta errados:  
+  8361 0000000026**00** 0009 009387492 10**56** 00 008011**1**322 : Código não identificado  
+  8361 0000000026**87** 0009 009387492 10**19** 00 008011**0**322 : Código correto  
+  - O software deve consultar a fatura através do número da fatura, como não há nenhum bloco igual, o retorno deve ser o percentual de números coincidentes. 
+  - 88% de números coincidentes
+       **********
+     
+  ## Teste 6, valor, mês/ano e conta errados:  
+  8361 0000000026**00** 0009 009387492 **1056** 00 00**80111**32**1** : Código não identificado  
+  8361 0000000026**87** 0009 009387492 **2319** 00 00**21420**32**2** : Código correto  
+  - O software deve consultar a fatura através do número da fatura, como não há nenhum bloco igual, o retorno deve ser o percentual de números coincidentes. 
+  - 73% de números coincidentes 
+  
