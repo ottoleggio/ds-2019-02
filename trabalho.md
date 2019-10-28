@@ -58,6 +58,7 @@ Manual do código de barras:
  Id da fatura = 001300500 (bloco 2, 8 a 10) + (bloco 3, 0 a 5)  
  mês e ano da fatura = 1219 (bloco 3, 6 a 9)  
  id da conta = 030600110 (bloco 4, 1 a 10)  
+  **********  
   
   
   # Design
@@ -66,6 +67,7 @@ Manual do código de barras:
  - Separar os blocos importantes do código
  - Identificar quais blocos se enquadram como válidos
  - Retornar os blocos válidos, identificando-os  
+ **********  
  
   ## Versão 2
   - A classe denominada 'CodigoDeBarras' contém o atributo 'codigo' que recebe uma String contendo o código de barras através de seu construtor.
@@ -75,7 +77,8 @@ Manual do código de barras:
     - O 'idFatura' é verificado se contém dois zeros iniciais.
     - O 'idConta' é verificado se contém dois zeros iniciais.
   - O método 'avaliaBlocos' retorna um boolean para cada bloco indicando se é valido ou não.
-  
+  **********  
+   
   ## Versão 3
   - Um classe denominada ProcessaCodigoDeBarras será responsável por desmembrar um código de barras e retornar seus blocos conforme lhe for solicitada. Essa classe é independente do resto do código, encapsulando o processamento do código de barras.
       - A classe possui os métodos getValorFatura, getIdFatura, getMesAnoFatura e getIdConta. Cada método lê o código de barras enviado já na construção da classe e retorna o trecho que identifica cada bloco respectivamente.
@@ -86,7 +89,22 @@ Manual do código de barras:
       - Ao receber mais de um bloco válido, o método buscaBanco realiza uma consulta no banco de dados da organização os seguintes blocos:
         1. id da fatura
         2. id da conta
-        - Cada consulta pode retornar uma fatura possível, o método retorna os blocos dessa fatura.
+        - Cada consulta pode retornar uma fatura possível, o método retorna os blocos dessa fatura. 
       - O método identificaPossivelFatura chama o buscaBanco e compara a fatura retornada na consulta com a fatura avaliada. A fatura retornada deve coincidir exatamente em pelo menos dois dos quatro blocos para ser considerado como identificada com 100% de certeza.
       - Caso nenhum outro bloco coincida, o método chama o método avaliaNumeros que avalia a quantidade de números iguais na mesma posição entre os códigos e retorna os percentuais de igualdade de cada retorno da consulta.
-      
+      **********
+        
+  ## Casos de teste
+  
+  Teste 1, conta errada:  
+  8361 000000002687 0009 009387492 1019 00 008011**1**322 : Código não identificado  
+  8361 000000002687 0009 009387492 1019 00 008011**0**322 : Código correto  
+  - O software deve identificar a fatura através do número da fatura, validando com o valor e o mês/ano.  
+  - 100% de certeza  
+   **********
+     
+  Teste 2, fatura errada:  
+  8361 000000002687 0009 0093874**1**2 1019 00 0080110322 : Código não identificado  
+  8361 000000002687 0009 0093874**9**2 1019 00 0080110322 : Código correto  
+  - O software deve identificar a fatura através do número da conta, validando com o valor e o mês/ano.  
+  - 100% de certeza  
