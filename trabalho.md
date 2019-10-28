@@ -107,4 +107,18 @@ Manual do código de barras:
   8361 000000002687 0009 0093874**1**2 1019 00 0080110322 : Código não identificado  
   8361 000000002687 0009 0093874**9**2 1019 00 0080110322 : Código correto  
   - O software deve identificar a fatura através do número da conta, validando com o valor e o mês/ano.  
-  - 100% de certeza  
+  - 100% de certeza 
+     **********
+     
+  Teste 3, valor errado:  
+  8361 0000000026**00** 0009 009387492 1019 00 0080110322 : Código não identificado  
+  8361 0000000026**87** 0009 009387492 1019 00 0080110322 : Código correto  
+  - O software deve identificar a fatura através do número da fatura, validando com a conta e o mês/ano.  
+  - 100% de certeza 
+     **********
+     
+  Teste 4, mês/ano errado:  
+  8361 000000002687 0009 009387492 1**1**19 00 0080110322 : Código não identificado  
+  8361 000000002687 0009 009387492 1**0**19 00 0080110322 : Código correto  
+  - O software deve identificar a fatura através do número da fatura, validando com a conta e o valor. 
+  - 100% de certeza 
