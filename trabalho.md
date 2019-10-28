@@ -76,4 +76,9 @@ Manual do código de barras:
     - O 'idConta' é verificado se contém dois zeros iniciais.
   - O método 'avaliaBlocos' retorna um boolean para cada bloco indicando se é valido ou não.
   
+  ## Versão 3
+  - Um classe denominada ProcessaCodigoDeBarras será responsável por desmembrar um código de barras e retornar seus blocos conforme lhe for solicitada. Essa classe é independente do resto do código, encapsulando o processamento do código de barras.
+      - A classe possui os métodos getValorFatura, getIdFatura, getMesAnoFatura e getIdConta. Cada método lê o código de barras enviado já na construção da classe e retorna o trecho que identifica cada bloco respectivamente.
+  - A classe ValidaBlocos tem o método validadorDeBlocos que é responsável por avaliar se cada bloco é válido ou não conforme especificado nos requisitos. Apenas os blocos considerados como válidos são retornados como um dicionário.
+      - Cada regra de validação de cada bloco é definida em métodos menores que serão utilizados pelo validadorDeBlocos. Desta forma as regras podem ser aperfeiçoadas sem alterar o comportamento do método avaliador.
   
