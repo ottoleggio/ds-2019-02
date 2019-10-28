@@ -74,6 +74,6 @@ Manual do código de barras:
     - O 'mês e ano da fatura' chama um outro método específico, 'avaliaData' para validar se aquela data é uma data possível.
     - O 'idFatura' é verificado se contém dois zeros iniciais.
     - O 'idConta' é verificado se contém dois zeros iniciais.
-  - O método 'avaliaBlocos' retorna um flag para cada 
+  - O método 'avaliaBlocos' retorna um boolean para cada bloco indicando se é valido ou não.
   
   
