@@ -61,39 +61,18 @@ Manual do código de barras:
   **********  
   
   
-  # Design
-  ## Versão 1
- - Receber uma String contendo o código de barras
- - Separar os blocos importantes do código
- - Identificar quais blocos se enquadram como válidos
- - Retornar os blocos válidos, identificando-os  
- **********  
- 
-  ## Versão 2
-  - A classe denominada **CodigoDeBarras** contém o atributo **codigo** que recebe uma String contendo o código de barras através de seu construtor.
-  - A classe **CodigoDeBarras** contém um método **separaBlocos** que separa os blocos importantes do código, sendo caractere 3 ao 14 o 'valor da fatura', do 18 ao 27 o 'id da fatura', do 28 ao 32 o 'mês e ano da fatura' e do 34 ao 43 o 'id da conta'. O método retorna um dicionário com os quatro blocos separados.
-  - O método **avaliaBlocos** recebe o dicionário da **separaBlocos** e avalia o 'idFatura', o 'mês e ano da fatura' e o 'idConta'.
-    - O 'mês e ano da fatura' chama um outro método específico, **avaliaData** para validar se aquela data é uma data possível.
-    - O 'idFatura' é verificado se contém dois zeros iniciais.
-    - O 'idConta' é verificado se contém dois zeros iniciais.
-  - O método **avaliaBlocos** retorna um boolean para cada bloco indicando se é valido ou não.
-  **********  
-   
-  ## Versão 3
-  - Um classe denominada **ProcessaCodigoDeBarras** será responsável por desmembrar um código de barras e retornar seus blocos conforme lhe for solicitada. Essa classe é independente do resto do código, encapsulando o processamento do código de barras.
-      - A classe possui os métodos **getValorFatura**, **getIdFatura**, **getMesAnoFatura** e **getIdConta**. Cada método lê o código de barras enviado já na construção da classe e retorna o trecho que identifica cada bloco respectivamente.
-  - A classe **ValidaBlocos** tem o método **validadorDeBlocos** que é responsável por avaliar se cada bloco é válido ou não conforme especificado nos requisitos. Apenas os blocos considerados como válidos são retornados como um dicionário.
-      - Cada regra de validação de cada bloco é definida em métodos menores que serão utilizados pelo **validadorDeBlocos**. Desta forma as regras podem ser aperfeiçoadas sem alterar o comportamento do método avaliador.
-  - A classe **faturaPossivel** é responsável por tentar definir qual fatura pode ser mais adequada aos blocos validados que ela receber.
-      - Caso o dicionário contenha apenas um ou nenhum bloco válido, o construtor já retorna nulo pois não é possível identificar uma fatura.
-      - Ao receber mais de um bloco válido, o método **buscaBanco** realiza uma consulta no banco de dados da organização os seguintes blocos:
-        1. id da fatura: Cada consulta pode retornar uma fatura possível, o método retorna os blocos dessa fatura. 
-        2. id da conta: Cada consulta retorna várias faturas de uma mesma conta.
-      - O método **identificaPossivelFatura** chama o **buscaBanco** e compara a fatura retornada na consulta com a fatura avaliada. A fatura retornada deve coincidir exatamente em pelo menos dois dos quatro blocos para ser considerado como identificada com 100% de certeza.
-      - Caso nenhum outro bloco coincida, o método chama o método **avaliaNumeros** que avalia a quantidade de números iguais na mesma posição entre os códigos e retorna os percentuais de igualdade de cada retorno da consulta. Caso o bloco consultado seja o número da conta, a fatura retornada será a que tiver o maior número de dígitos iguais.
+  # Design  
+
+  - Um classe denominada **CodigoDeBarras** será responsável por desmembrar um código de barras e retornar seus blocos conforme lhe for solicitada. Essa classe é independente do resto do código, encapsulando o processamento do código de barras.
+      - A classe possui os métodos **getValorFatura**, **getIdFatura**, **getMesAnoFatura** e **getIdConta**. Cada método lê o código de barras enviado já na construção da classe e retorna um **Bloco** com trecho que identifica cada bloco respectivamente.
+  - Os tipo de blocos são definidos pelo enum BlocoTipo { PRECO, FATURA, DATA, CONTA }.
+  - **Bloco** é uma classe cuja instância guarda um dos blocos do código de barra. Cada instância sabe qual é seu tipo correspondente, que é um dos parâmetros de seu construtor.
+  - Classes de verificação dos blocos implementando **Predicate** definem regras para verificar se cada bloco é consistente para se levar a busca adiante. A combinação dessas classes formam as regras gerais específicas de cada bloco.
+  - Além da verificação dos blocos, existem outras classes implementando **Predicate** quem avaliam a existência desses blocos no banco de dados da organização, e outras ainda comparando os resultados da query com os blocos do código avaliado.
+  - O resultado do processamento é uma fatura correspondente identificada, ou uma sugestão de fatura correspondente com a quantidade de dígitos correspondentes, caso não tenha sido possível encontrar a 100% correta.
       **********
         
-  ## Casos de teste
+  ## Exemplos de casos de teste
   
   ### Teste 1, conta errada:  
   8361 000000002687 0009 009387492 1019 00 008011**1**322 : Código não identificado  
