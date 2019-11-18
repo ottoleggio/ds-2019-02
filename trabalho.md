@@ -3,15 +3,11 @@
 O código de barras de uma fatura de energia é enviado para a concessionária para que a baixa correspondente possa ser efetuada. O envio ocorre por meio de um arquivo TXT, no qual estão presentes códigos de barras de várias faturas. Neste
 arquivo é fornecido uma fatura por linha. Nem sempre, contudo, o código de barras é identificado (reconhecido) pelo sistema, por estar fora do padrão. Em geral, isso acontece por erros de digitação, ou falha no leitor de código de barras, ou ainda em decorrencia da qualidade da câmera empregada para coletar o código.
 
-O padrão do código, no entanto, foi projetado de forma a admitir recuperação em alguns casos. Atualmente, o processo para recuperar um código de barras com problema é realizado manualmente. A proposta é automatizar este processo por meio de um programa, com benefício direto para o desempenho do processo como um todo. 
+O padrão do código permite, no entanto, a identificação do código, em alguns casos, mesmo quando o padrão não é seguido. 
+Atualmente, o processo para identificar o código de barras a partir de um código de barras com problema é realizado manualmente. A proposta é automatizar este processo por meio de um programa, com benefício direto para o desempenho do processo como um todo. 
 
-## Suposições a serem esclarecidas
+Exemplos de códigos seguem abaixo:
 
-- Há como automatizar o processo manual hoje empregado. 
-  
-  
-  
-Exemplos de códigos:  
 A fatura de ID:836 000000002687 0009 0000000 1062 28 970800110000 não foi encontrada.  
 A fatura de ID:83620000001399500090000000103780000810100000 não foi encontrada.  
 A fatura de ID:83650000000493400090013000001542120000600000 não foi encontrada.  
@@ -35,8 +31,13 @@ A fatura de ID:83640000000195200090013000001541550000100000 não foi encontrada.
 A fatura de ID:83630000000994400090013000001539950000600000 não foi encontrada.  
 
 
+## Suposições a serem esclarecidas
+
+- Há como automatizar o processo manual hoje empregado. 
+ 
+
 ### Descrição dos requisitos do módulo:
-- R1 Uma sequência 44 números deve ser recebida como sequência de caracteres.
+- R1 Uma sequência de 44 números deve ser recebida como sequência de caracteres.
 - R2 O software deve separar o código em 4 blocos: valor da fatura; id da fatura; mês e ano da fatura; id da conta.
 - R3 O software deve ser capaz de identificar quantos blocos tem uma sequência válida para o sistema
 de acordo com o manual de código de barras da organização. 
@@ -59,11 +60,12 @@ Manual do código de barras:
   **********  
   
   
-  # Design  
+  # Design (classes principais e suas responsabilidades)  
 
-  - Um classe denominada **CodigoDeBarras** será responsável por desmembrar um código de barras e retornar seus blocos conforme lhe for solicitada. Essa classe é independente do resto do código, encapsulando o processamento do código de barras.
-      - A classe possui os métodos **getValorFatura**, **getIdFatura**, **getMesAnoFatura** e **getIdConta**. Cada método lê o código de barras enviado já na construção da classe e retorna um **Bloco** com trecho que identifica cada bloco respectivamente.
-  - Os tipo de blocos são definidos pelo enum BlocoTipo { PRECO, FATURA, DATA, CONTA }.
+  - **CodigoDeBarras**. Responsável por representar um código de barras. Encapsula a estrutura de dados necessária e fornece os componentes do código de barras sob demanda.
+      - A classe possui os métodos **getValorFatura**, **getIdFatura**, **getMesAnoFatura** e **getIdConta**. Cada método 
+      retorna este componente do código de barras em questão. O retorno é uma instância de **Bloco**. 
+  - **BlocoTipo** é responsável por representar um tipo de bloco. As opções são: PRECO, FATURA, DATA, CONTA.
   - **Bloco** é uma classe cuja instância guarda um dos blocos do código de barra. Cada instância sabe qual é seu tipo correspondente, que é um dos parâmetros de seu construtor.
   - Regras executadas, no momento, manualmente, serão encapsuladas em _predicados_ (classes que implementam **Predicate**). De fato, cada regra deverá ser uma composição de predicados "menores", que possivelmente serão reutilizados entre várias regras. Por exemplo, ...
   - Classes de verificação dos blocos implementando **Predicate** definem regras para verificar se cada bloco é consistente para se levar a busca adiante. A combinação dessas classes formam as regras gerais específicas de cada bloco.
