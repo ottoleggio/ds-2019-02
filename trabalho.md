@@ -67,12 +67,15 @@ Manual do código de barras:
       - A classe possui os métodos **getValorFatura**, **getIdFatura**, **getMesAnoFatura** e **getIdConta**. Cada método lê o código de barras enviado já na construção da classe e retorna um **Bloco** com trecho que identifica cada bloco respectivamente.
   - Os tipo de blocos são definidos pelo enum BlocoTipo { PRECO, FATURA, DATA, CONTA }.
   - **Bloco** é uma classe cuja instância guarda um dos blocos do código de barra. Cada instância sabe qual é seu tipo correspondente, que é um dos parâmetros de seu construtor.
+  - Regras executadas, no momento, manualmente, serão encapsuladas em _predicados_ (classes que implementam **Predicate**). De fato, cada regra deverá ser uma composição de predicados "menores", que possivelmente serão reutilizados entre várias regras. Por exemplo, ...
   - Classes de verificação dos blocos implementando **Predicate** definem regras para verificar se cada bloco é consistente para se levar a busca adiante. A combinação dessas classes formam as regras gerais específicas de cada bloco.
   - Além da verificação dos blocos, existem outras classes implementando **Predicate** quem avaliam a existência desses blocos no banco de dados da organização, e outras ainda comparando os resultados da query com os blocos do código avaliado.
   - O resultado do processamento é uma fatura correspondente identificada, ou uma sugestão de fatura correspondente com a quantidade de dígitos correspondentes, caso não tenha sido possível encontrar a 100% correta.
       **********
         
   ## Exemplos de casos de teste
+  
+  > Seria oportuno acrescentar, para cada caso abaixo, quais são os predicados correspondentes que poderiam ser combinados para se obter as regras que realizam o que os testes estão afirmando, ou não?
   
   ### Teste 1, conta errada:  
   8361 000000002687 0009 009387492 1019 00 008011**1**322 : Código não identificado  
