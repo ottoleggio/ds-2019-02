@@ -75,58 +75,108 @@ Manual do código de barras:
         
   ## Exemplos de casos de teste
   
-  > Seria oportuno acrescentar, para cada caso abaixo, quais são os predicados correspondentes que poderiam ser combinados para se obter as regras que realizam o que os testes estão afirmando, ou não?
+  ### Teste 1, conta errada:
+  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero)  **true**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero)  **true**  
+  Predicates do bloco data: data.and(dataReal).and(antesDeHoje)  **true**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) **true**  
   
-  ### Teste 1, conta errada:  
   8361 000000002687 0009 009387492 1019 00 008011**1**322 : Código não identificado  
   8361 000000002687 0009 009387492 1019 00 008011**0**322 : Código correto  
   - O software deve identificar a fatura através do número da fatura, validando com o valor e o mês/ano.  
   - 100% de certeza  
    **********
+   
+  ### Teste 1, conta errada:
+  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero)  **true**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero)  **true**  
+  Predicates do bloco data: data.and(dataReal).and(antesDeHoje)  **true**  
+  Predicates do bloco conta: conta.and(**doisZerosInicio**).and(diferenteDeZero) **false**  
+  
+  8361 000000002687 0009 009387492 1019 00 **1**080113222 : Código não identificado  
+  8361 000000002687 0009 009387492 1019 00 **0**080113222 : Código correto  
+  - O software deve identificar a fatura através do número da fatura, validando com o valor e o mês/ano.  
+  - 100% de certeza  
+   **********
      
   ### Teste 2, fatura errada:  
-  8361 000000002687 0009 0093874**1**2 1019 00 0080110322 : Código não identificado  
-  8361 000000002687 0009 0093874**9**2 1019 00 0080110322 : Código correto  
+  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero)  **true**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(**diferenteDeZero**)  **false**  
+  Predicates do bloco data: data.and(dataReal).and(antesDeHoje)  **true**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) **true**  
+  
+  8361 000000002687 0009 00**0000000** 1019 00 0080110322 : Código não identificado  
+  8361 000000002687 0009 00**9387492** 1019 00 0080110322 : Código correto  
   - O software deve identificar a fatura através do número da conta, validando com o valor e o mês/ano.  
   - 100% de certeza 
      **********
      
   ### Teste 3, valor errado:  
-  8361 0000000026**00** 0009 009387492 1019 00 0080110322 : Código não identificado  
-  8361 0000000026**87** 0009 009387492 1019 00 0080110322 : Código correto  
+  Predicates do bloco valor: valor.and(**menorQueMil**).and(diferenteDeZero)  **false**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero)  **true**  
+  Predicates do bloco data: data.and(dataReal).and(antesDeHoje)  **true**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) **true**  
+  
+  8361 000000**5**026**00** 0009 009387492 1019 00 0080110322 : Código não identificado  
+  8361 000000**0**026**87** 0009 009387492 1019 00 0080110322 : Código correto  
   - O software deve identificar a fatura através do número da fatura, validando com a conta e o mês/ano.  
   - 100% de certeza 
      **********
      
-  ### Teste 4, mês/ano errado:  
-  8361 000000002687 0009 009387492 1**1**19 00 0080110322 : Código não identificado  
+  ### Teste 4, mês/ano errado:   
+  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero)  **true**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero)  **true**  
+  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje)  **false**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) **true**  
+  
+  8361 000000002687 0009 009387492 1**4**19 00 0080110322 : Código não identificado  
   8361 000000002687 0009 009387492 1**0**19 00 0080110322 : Código correto  
   - O software deve identificar a fatura através do número da fatura, validando com a conta e o valor. 
   - 100% de certeza 
      **********
      
-  ### Teste 5, valor, mês/ano e conta errados:  
-  8361 0000000026**00** 0009 009387492 10**56** 00 008011**1**322 : Código não identificado  
-  8361 0000000026**87** 0009 009387492 10**19** 00 008011**0**322 : Código correto  
+  ### Teste 5, valor, mês/ano e conta errados: 
+  Predicates do bloco valor: valor.and(menorQueMil).and(**diferenteDeZero**)  **false**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero)  **true**  
+  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje)  **false**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) **true** 
+  
+  8361 00000000**0000** 0009 009387492 10**56** 00 008011**1**322 : Código não identificado  
+  8361 00000000**2687** 0009 009387492 10**19** 00 008011**0**322 : Código correto  
   - O software deve consultar a fatura através do número da fatura, como não há nenhum outro bloco igual, o retorno deve ser o percentual de números coincidentes. 
   - 88% de números coincidentes
        **********
      
   ### Teste 6, valor, mês/ano e conta errados:  
+  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero)  **true**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero)  **true**  
+  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje)  **false**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) **true** 
+  
   8361 0000000026**00** 0009 009387492 **2356** 00 00**80111**32**1** : Código não identificado  
   8361 0000000026**87** 0009 009387492 **1019** 00 00**21420**32**2** : Código correto  
   - O software deve consultar a fatura através do número da fatura, como não há nenhum outro bloco igual, o retorno deve ser o percentual de números coincidentes. 
   - 73% de números coincidentes 
        **********
      
-  ### Teste 7, valor, fatura e mês/ano errados:  
-  8361 0000000026**00** 0009 009**123**492 **1056** 00 0021420322 : Código não identificado  
-  8361 0000000026**87** 0009 009**387**492 **2319** 00 0021420322 : Código correto  
+  ### Teste 7, valor, fatura e mês/ano errados:    
+  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero)  **true**  
+  Predicates do bloco fatura: idFatura.and(**doisZerosInicio**).and(diferenteDeZero)  **false**  
+  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje)  **false**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) **true** 
+  
+  8361 0000000026**00** 0009 **1**09**123**492 **1056** 00 0021420322 : Código não identificado  
+  8361 0000000026**87** 0009 **0**09**387**492 **2319** 00 0021420322 : Código correto  
   - O software deve consultar a fatura através do número da conta, como não há nenhum outro bloco igual, o retorno deve ser o  de maior percentual de números coincidentes. 
   - 86% de números coincidentes 
          **********
      
-  ### Teste 8, todos os blocos errados:  
-  8361 0000000026**00** 0009 009**123**492 **1056** 00 00214**3**0322 : Código não identificado  
-  8361 0000000026**87** 0009 009**387**492 **2319** 00 00214**2**0322 : Código correto  
+  ### Teste 8, todos os blocos errados:    
+  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero)  **true**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero)  **true**  
+  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje)  **false**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(**diferenteDeZero**) **false** 
+  
+  8361 0000000026**00** 0009 009**123**492 **1056** 00 **1121430322** : Código não identificado  
+  8361 0000000026**87** 0009 009**387**492 **2319** 00 **0000000000** : Código correto  
   - Não há como consultar uma fatura correspondente.
