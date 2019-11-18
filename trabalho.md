@@ -76,10 +76,10 @@ Manual do código de barras:
   ## Exemplos de casos de teste
   
   ### Teste 1, conta errada:
-  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero)  **true**  
-  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero)  **true**  
-  Predicates do bloco data: data.and(dataReal).and(antesDeHoje)  **true**  
-  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) **true**  
+  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero) ---------------->  **true**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero) --------> **true**  
+  Predicates do bloco data: data.and(dataReal).and(antesDeHoje) -------------------------> **true**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) ------------> **true**  
   
   8361 000000002687 0009 009387492 1019 00 008011**1**322 : Código não identificado  
   8361 000000002687 0009 009387492 1019 00 008011**0**322 : Código correto  
@@ -87,11 +87,11 @@ Manual do código de barras:
   - 100% de certeza  
    **********
    
-  ### Teste 1, conta errada:
-  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero)  **true**  
-  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero)  **true**  
-  Predicates do bloco data: data.and(dataReal).and(antesDeHoje)  **true**  
-  Predicates do bloco conta: conta.and(**doisZerosInicio**).and(diferenteDeZero) **false**  
+  ### Teste 2, conta errada:
+  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero) ----------------> **true**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero) --------> **true**  
+  Predicates do bloco data: data.and(dataReal).and(antesDeHoje) -------------------------> **true**  
+  Predicates do bloco conta: conta.and(**doisZerosInicio**).and(diferenteDeZero) --------> **false**  
   
   8361 000000002687 0009 009387492 1019 00 **1**080113222 : Código não identificado  
   8361 000000002687 0009 009387492 1019 00 **0**080113222 : Código correto  
@@ -99,11 +99,11 @@ Manual do código de barras:
   - 100% de certeza  
    **********
      
-  ### Teste 2, fatura errada:  
-  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero)  **true**  
-  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(**diferenteDeZero**)  **false**  
-  Predicates do bloco data: data.and(dataReal).and(antesDeHoje)  **true**  
-  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) **true**  
+  ### Teste 3, fatura errada:  
+  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero) ----------------> **true**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(**diferenteDeZero**) ----> **false**  
+  Predicates do bloco data: data.and(dataReal).and(antesDeHoje) -------------------------> **true**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) ------------> **true**  
   
   8361 000000002687 0009 00**0000000** 1019 00 0080110322 : Código não identificado  
   8361 000000002687 0009 00**9387492** 1019 00 0080110322 : Código correto  
@@ -111,11 +111,11 @@ Manual do código de barras:
   - 100% de certeza 
      **********
      
-  ### Teste 3, valor errado:  
-  Predicates do bloco valor: valor.and(**menorQueMil**).and(diferenteDeZero)  **false**  
-  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero)  **true**  
-  Predicates do bloco data: data.and(dataReal).and(antesDeHoje)  **true**  
-  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) **true**  
+  ### Teste 4, valor errado:  
+  Predicates do bloco valor: valor.and(**menorQueMil**).and(diferenteDeZero) ------------> **false**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero) --------> **true**  
+  Predicates do bloco data: data.and(dataReal).and(antesDeHoje) -------------------------> **true**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) ------------> **true**  
   
   8361 000000**5**026**00** 0009 009387492 1019 00 0080110322 : Código não identificado  
   8361 000000**0**026**87** 0009 009387492 1019 00 0080110322 : Código correto  
@@ -123,11 +123,11 @@ Manual do código de barras:
   - 100% de certeza 
      **********
      
-  ### Teste 4, mês/ano errado:   
-  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero)  **true**  
-  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero)  **true**  
-  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje)  **false**  
-  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) **true**  
+  ### Teste 5, mês/ano errado:   
+  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero) ----------------> **true**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero) --------> **true**  
+  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje) ---------------------> **false**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) ------------> **true**  
   
   8361 000000002687 0009 009387492 1**4**19 00 0080110322 : Código não identificado  
   8361 000000002687 0009 009387492 1**0**19 00 0080110322 : Código correto  
@@ -135,11 +135,11 @@ Manual do código de barras:
   - 100% de certeza 
      **********
      
-  ### Teste 5, valor, mês/ano e conta errados: 
-  Predicates do bloco valor: valor.and(menorQueMil).and(**diferenteDeZero**)  **false**  
-  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero)  **true**  
-  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje)  **false**  
-  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) **true** 
+  ### Teste 6, valor, mês/ano e conta errados: 
+  Predicates do bloco valor: valor.and(menorQueMil).and(**diferenteDeZero**) ------------> **false**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero) --------> **true**  
+  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje) ---------------------> **false**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) ------------> **true** 
   
   8361 00000000**0000** 0009 009387492 10**56** 00 008011**1**322 : Código não identificado  
   8361 00000000**2687** 0009 009387492 10**19** 00 008011**0**322 : Código correto  
@@ -147,11 +147,11 @@ Manual do código de barras:
   - 88% de números coincidentes
        **********
      
-  ### Teste 6, valor, mês/ano e conta errados:  
-  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero)  **true**  
-  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero)  **true**  
-  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje)  **false**  
-  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) **true** 
+  ### Teste 7, valor, mês/ano e conta errados:  
+  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero) ---------------> **true**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero) -------> **true**  
+  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje) --------------------> **false**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) -----------> **true** 
   
   8361 0000000026**00** 0009 009387492 **2356** 00 00**80111**32**1** : Código não identificado  
   8361 0000000026**87** 0009 009387492 **1019** 00 00**21420**32**2** : Código correto  
@@ -159,11 +159,11 @@ Manual do código de barras:
   - 73% de números coincidentes 
        **********
      
-  ### Teste 7, valor, fatura e mês/ano errados:    
-  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero)  **true**  
-  Predicates do bloco fatura: idFatura.and(**doisZerosInicio**).and(diferenteDeZero)  **false**  
-  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje)  **false**  
-  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) **true** 
+  ### Teste 8, valor, fatura e mês/ano errados:    
+  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero) ---------------> **true**  
+  Predicates do bloco fatura: idFatura.and(**doisZerosInicio**).and(diferenteDeZero) ---> **false**  
+  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje) --------------------> **false**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(diferenteDeZero) -----------> **true** 
   
   8361 0000000026**00** 0009 **1**09**123**492 **1056** 00 0021420322 : Código não identificado  
   8361 0000000026**87** 0009 **0**09**387**492 **2319** 00 0021420322 : Código correto  
@@ -171,12 +171,12 @@ Manual do código de barras:
   - 86% de números coincidentes 
          **********
      
-  ### Teste 8, todos os blocos errados:    
-  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero)  **true**  
-  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero)  **true**  
-  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje)  **false**  
-  Predicates do bloco conta: conta.and(doisZerosInicio).and(**diferenteDeZero**) **false** 
+  ### Teste 9, todos os blocos errados:    
+  Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero) ---------------> **false**  
+  Predicates do bloco fatura: idFatura.and(doisZerosInicio).and(diferenteDeZero) -------> **false**  
+  Predicates do bloco data: data.and(**dataReal**).and(antesDeHoje) --------------------> **false**  
+  Predicates do bloco conta: conta.and(doisZerosInicio).and(**diferenteDeZero**) -------> **false** 
   
-  8361 0000000026**00** 0009 009**123**492 **1056** 00 **1121430322** : Código não identificado  
-  8361 0000000026**87** 0009 009**387**492 **2319** 00 **0000000000** : Código correto  
+  8361 000**2**000026**00** 0009 **11**9**123**492 **1056** 00 **1121430322** : Código não identificado  
+  8361 000**0**000026**87** 0009 **00**9**387**492 **2319** 00 **0000000000** : Código correto  
   - Não há como consultar uma fatura correspondente.
