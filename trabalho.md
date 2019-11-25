@@ -72,8 +72,16 @@ Manual do código de barras:
   - Além da verificação dos blocos, existem outras classes implementando **Predicate** quem avaliam a existência desses blocos no banco de dados da organização, e outras ainda comparando os resultados da query com os blocos do código avaliado.
   - O resultado do processamento é uma fatura correspondente identificada, ou uma sugestão de fatura correspondente com a quantidade de dígitos correspondentes, caso não tenha sido possível encontrar a 100% correta.
       **********
-        
-  ## Exemplos de casos de teste
+      
+  A função abaixo recebe um bloco de código de barras e seu respectivo predicate, caso o teste do predicate esteja correto uma busca no banco de dados e realizada.
+  ````
+  public CodigoDeBarras buscaBancoDeDados(Bloco bloco, Predicate predicate) {  
+    if (predicate.test(codigoDeBarras)){  
+       return buscaNoBanco(codigoDeBarras);  
+    }
+  }
+  ````        
+  ## Exemplos de casos de teste  
   
   ### Teste 1, conta errada:
   Predicates do bloco valor: valor.and(menorQueMil).and(diferenteDeZero) ---------------->  **true**  
